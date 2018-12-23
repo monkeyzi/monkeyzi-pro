@@ -13,6 +13,7 @@
     <packaging>jar</packaging>
     <name>monkeyzi-pro-common-swagger</name>
     <description>monkeyzi 接口文档配置</description>
+
     <dependencies>
         <!--swagger 依赖-->
         <dependency>
