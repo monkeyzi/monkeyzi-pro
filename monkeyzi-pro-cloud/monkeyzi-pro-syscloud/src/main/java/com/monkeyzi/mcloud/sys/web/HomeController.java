@@ -1,5 +1,6 @@
 package com.monkeyzi.mcloud.sys.web;
 
+import com.monkeyzi.mcloud.common.core.exception.BusinessException;
 import com.monkeyzi.mcloud.common.core.utils.R;
 import com.monkeyzi.mcloud.common.log.annotation.LogAnnotation;
 import com.monkeyzi.mcloud.sys.domain.User;
@@ -40,9 +41,9 @@ public class HomeController {
     public String home1(User user){
 
         System.out.println("进来了");
+        throw new BusinessException(1200,"业务异常");
 
-
-        return "h1";
+        //return "h1";
     }
 
     @LogAnnotation

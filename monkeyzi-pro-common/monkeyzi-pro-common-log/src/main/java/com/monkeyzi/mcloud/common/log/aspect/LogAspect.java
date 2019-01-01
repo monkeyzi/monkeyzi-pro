@@ -1,6 +1,9 @@
 package com.monkeyzi.mcloud.common.log.aspect;
 
+import com.monkeyzi.mcloud.common.core.enums.ErrorCodeEnum;
+import com.monkeyzi.mcloud.common.core.exception.BusinessException;
 import com.monkeyzi.mcloud.common.core.utils.FastJsonUtils;
+import com.monkeyzi.mcloud.common.core.utils.R;
 import com.monkeyzi.mcloud.common.log.annotation.LogAnnotation;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -33,11 +36,12 @@ public class LogAspect {
         // 请求参数
         String params=setJsonRequestData(point);
         log.info("参数为={}",params);
-        //
+
+        Object obj=null;
         // 开始时间
         Long startTime=System.currentTimeMillis();
         // 执行方法
-        Object obj=point.proceed();
+        obj=point.proceed();
         String result=FastJsonUtils.obj2String(obj);
         log.info("执行结果为={}",result);
         // 结束时间
@@ -48,6 +52,23 @@ public class LogAspect {
         return obj;
     }
 
+    /**
+     * 处理异常日志
+     * @param point
+     * @param throwable
+     * @return
+     */
+    private String handlerException(ProceedingJoinPoint point,Throwable throwable){
+        String result=null;
+        if (throwable instanceof Exception){
+            result=FastJsonUtils.obj2String(R.error(ErrorCodeEnum.GL500.getCode(),throwable.getMessage()));
+            log.info("500={}",result);
+        }else if (throwable instanceof BusinessException){
+            result=FastJsonUtils.obj2String(R.error(ErrorCodeEnum.GL400.getCode(),throwable.getMessage()));
+            log.info("400={}",result);
+        }
+        return result;
+    }
     //获取请求参数
     private String setJsonRequestData(ProceedingJoinPoint joinPoint) {
         try {
