@@ -1,4 +1,18 @@
 ## 个人开源项目
 ### 技术栈：
-springcloud,springboot,redis,mysql,mybatis
+springcloud,springboot,redis,mysql,mybatis,swagger2.9.2
+### 项目模块：
+1：系统管理模块*(进行中)*
+
+2：消息模块(计划中)
+
+3：系统通知模块(计划中)
+
+4：支付模块(计划中)
+
+5：商品模块(计划中)
+
+6：购物车模块(计划中)
+
+7：订单模块(计划中)
 
