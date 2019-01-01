@@ -5,11 +5,42 @@
     <parent>
         <artifactId>monkeyzi-pro-cloud</artifactId>
         <groupId>com.monkeyzi</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${monkeyzi.pro.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>monkeyzi-pro-syscloud</artifactId>
+    <name>monkeyzi-pro-syscloud</name>
+    <packaging>jar</packaging>
+    <description>系统管理模块</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.monkeyzi</groupId>
+            <artifactId>monkeyzi-pro-common-log</artifactId>
+            <version>${monkeyzi.pro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.monkeyzi</groupId>
+            <artifactId>monkeyzi-pro-common-swagger</artifactId>
+            <version>${monkeyzi.pro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--数据库-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--通用mapper-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>${tk.mybatis.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

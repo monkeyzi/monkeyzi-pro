@@ -10,6 +10,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>monkeyzi-pro-common-log</artifactId>
+    <packaging>jar</packaging>
+    <name>monkeyzi-pro-common-log</name>
+    <description>monkeyzi系统操作日志</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.monkeyzi</groupId>
+            <artifactId>monkeyzi-pro-common-core</artifactId>
+            <version>${monkeyzi.pro.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

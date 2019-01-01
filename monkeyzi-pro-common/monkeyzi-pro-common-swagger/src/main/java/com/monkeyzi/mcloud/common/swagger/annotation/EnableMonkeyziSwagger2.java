@@ -1,6 +1,6 @@
-package com.monkeyzi.mcloud.mcloud.swagger.annotation;
+package com.monkeyzi.mcloud.common.swagger.annotation;
 
-import com.monkeyzi.mcloud.mcloud.swagger.config.SwaggerAutoConfiguration;
+import com.monkeyzi.mcloud.common.swagger.config.SwaggerAutoConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;

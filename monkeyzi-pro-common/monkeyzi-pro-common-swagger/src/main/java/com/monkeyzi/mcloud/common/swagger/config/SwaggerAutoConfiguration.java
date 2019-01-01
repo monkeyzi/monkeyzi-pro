@@ -1,8 +1,10 @@
-package com.monkeyzi.mcloud.mcloud.swagger.config;
+package com.monkeyzi.mcloud.common.swagger.config;
 
 import cn.hutool.core.collection.CollUtil;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +17,7 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import sun.security.krb5.internal.APOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,6 @@ import java.util.List;
  */
 @Configuration
 @EnableSwagger2
-@EnableAutoConfiguration
 public class SwaggerAutoConfiguration {
     /**
      * 默认排除的url
@@ -48,7 +50,7 @@ public class SwaggerAutoConfiguration {
     @Bean
     public Docket api(SwaggerProperties swaggerProperties){
         if (CollUtil.isEmpty(swaggerProperties.getBasePath())){
-            swaggerProperties.setBasePackage(BASE_PATH);
+            swaggerProperties.getBasePath().add(BASE_PATH);
         }
         List<Predicate<String>> basePath=new ArrayList<>();
         swaggerProperties.getBasePath().forEach(path->basePath.add(PathSelectors.ant(path))
@@ -60,12 +62,12 @@ public class SwaggerAutoConfiguration {
         List<Predicate<String>> excludePath=new ArrayList<>();
         swaggerProperties.getExcludePath().forEach(path->excludePath.add(PathSelectors.ant(path)));
         return new Docket(DocumentationType.SWAGGER_2)
-                .host(swaggerProperties.getHost())
+               .host(swaggerProperties.getHost())
                 .apiInfo(apiInfo(swaggerProperties)).select()
                 .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasePackage()))
                 .paths(Predicates.and(Predicates.not(Predicates.or(excludePath)), Predicates.or(basePath)))
-                .build()
-                .pathMapping("/");
+                .build();
+
     }
 
     private ApiInfo apiInfo(SwaggerProperties swaggerProperties) {

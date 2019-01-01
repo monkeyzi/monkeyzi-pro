@@ -1,4 +1,4 @@
-package com.monkeyzi.mcloud.mcloud.swagger.config;
+package com.monkeyzi.mcloud.common.swagger.config;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
