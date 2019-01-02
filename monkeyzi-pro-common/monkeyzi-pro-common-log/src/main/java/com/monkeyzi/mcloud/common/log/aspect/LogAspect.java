@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -23,8 +24,13 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @Aspect
+@Order(1)
 public class LogAspect {
+    /**
+     * 请求参数记录最大值
+     */
     private static final int MAX_SIZE=2000;
+
     @Around("@annotation(LogAnnotation)")
     public Object around(ProceedingJoinPoint point, LogAnnotation LogAnnotation) throws Throwable{
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -34,7 +40,7 @@ public class LogAspect {
         String methodName=point.getSignature().getName();
         log.info("执行类名={},方法名={}",className,methodName);
         // 请求参数
-        String params=setJsonRequestData(point);
+        String params=handlerRequestParams(point);
         log.info("参数为={}",params);
 
         Object obj=null;
@@ -48,29 +54,18 @@ public class LogAspect {
         Long endTime=System.currentTimeMillis();
         Long executeTime=endTime-startTime;
         log.info("执行时间为={}",executeTime);
+        log.info("日志ok");
 
         return obj;
     }
 
+
     /**
-     * 处理异常日志
-     * @param point
-     * @param throwable
+     * 获取请求参数
+     * @param joinPoint
      * @return
      */
-    private String handlerException(ProceedingJoinPoint point,Throwable throwable){
-        String result=null;
-        if (throwable instanceof Exception){
-            result=FastJsonUtils.obj2String(R.error(ErrorCodeEnum.GL500.getCode(),throwable.getMessage()));
-            log.info("500={}",result);
-        }else if (throwable instanceof BusinessException){
-            result=FastJsonUtils.obj2String(R.error(ErrorCodeEnum.GL400.getCode(),throwable.getMessage()));
-            log.info("400={}",result);
-        }
-        return result;
-    }
-    //获取请求参数
-    private String setJsonRequestData(ProceedingJoinPoint joinPoint) {
+    private String handlerRequestParams(ProceedingJoinPoint joinPoint) {
         try {
             Object[] args = joinPoint.getArgs();
             if (args.length == 0) {

@@ -1,5 +1,6 @@
 package com.monkeyzi.mcloud.sys.web;
 
+import com.monkeyzi.mcloud.common.core.annotation.CheckSignAnnotation;
 import com.monkeyzi.mcloud.common.core.exception.BusinessException;
 import com.monkeyzi.mcloud.common.core.utils.R;
 import com.monkeyzi.mcloud.common.log.annotation.LogAnnotation;
@@ -23,13 +24,14 @@ import javax.validation.Valid;
 @Api(value = "monkeyzi-homeController",description = "首页", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class HomeController {
 
+    @CheckSignAnnotation
     @LogAnnotation
     @PostMapping(value = "/home")
     @ApiOperation(value = "测试")
     public String home(@Valid @RequestBody User user){
 
             System.out.println("进来了");
-            System.out.println(1/0);
+            //System.out.println(1/0);
 
 
         return "hhh";
@@ -45,8 +47,8 @@ public class HomeController {
 
         //return "h1";
     }
-
     @LogAnnotation
+    @CheckSignAnnotation
     @PostMapping(value = "/home2")
     @ApiOperation(value = "测试1")
     public String home2(String name){

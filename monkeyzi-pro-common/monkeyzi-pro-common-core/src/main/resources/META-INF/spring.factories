@@ -1,3 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
     com.monkeyzi.mcloud.common.core.config.JacksonConfig,\
-    com.monkeyzi.mcloud.common.core.exception.GlobalExceptionHandler
+    com.monkeyzi.mcloud.common.core.exception.GlobalExceptionHandler,\
+    com.monkeyzi.mcloud.common.core.configuration.CheckSignAutoConfiguration
