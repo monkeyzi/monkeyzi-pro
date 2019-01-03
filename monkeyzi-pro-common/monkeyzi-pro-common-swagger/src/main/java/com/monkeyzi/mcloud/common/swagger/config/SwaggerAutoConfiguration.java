@@ -3,9 +3,6 @@ package com.monkeyzi.mcloud.common.swagger.config;
 import cn.hutool.core.collection.CollUtil;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +14,6 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import sun.security.krb5.internal.APOptions;
 
 import java.util.ArrayList;
 import java.util.List;

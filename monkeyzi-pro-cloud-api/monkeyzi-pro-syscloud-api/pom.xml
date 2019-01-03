@@ -7,9 +7,21 @@
         <groupId>com.monkeyzi</groupId>
         <version>${monkeyzi.pro.version}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>monkeyzi-pro-syscloud-api</artifactId>
+    <packaging>jar</packaging>
+    <name>monkeyzi-pro-syscloud-api</name>
+    <description>monkeyzi-pro 系统管理模块通用公共api</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.monkeyzi</groupId>
+            <artifactId>monkeyzi-pro-common-core</artifactId>
+            <version>${monkeyzi.pro.version}</version>
+        </dependency>
+    </dependencies>
+
 
 
 </project>
