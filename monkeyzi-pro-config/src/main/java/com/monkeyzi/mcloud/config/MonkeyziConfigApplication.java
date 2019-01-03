@@ -1,4 +1,4 @@
-package com.monkeyzi.mcloud.sys.config;
+package com.monkeyzi.mcloud.config;
 
 /**
  * @author: 高yg

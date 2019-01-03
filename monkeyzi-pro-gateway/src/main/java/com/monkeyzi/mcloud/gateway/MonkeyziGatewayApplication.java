@@ -1,4 +1,4 @@
-package com.monkeyzi.mcloud.sys.gateway;
+package com.monkeyzi.mcloud.gateway;
 
 /**
  * @author: 高yg
