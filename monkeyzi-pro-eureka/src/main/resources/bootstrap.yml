@@ -1,0 +1,27 @@
+server:
+  port: 8761
+spring:
+  security:
+    user:
+      name: monkeyzi
+      password: monkeyzi
+  application:
+    name: monkeyzi-pro-eureka
+
+
+
+
+#eureka配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    service-url:
+         defaultZone: http://monkeyzi:monkeyzi@${eureka.instance.hostname}:${server.port}/eureka/
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 4000
+    renewal-percent-threshold: 0.9

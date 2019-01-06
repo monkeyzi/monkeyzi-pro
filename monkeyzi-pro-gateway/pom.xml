@@ -10,6 +10,41 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>monkeyzi-pro-gateway</artifactId>
+    <packaging>jar</packaging>
+    <description>monkeyzi-pro项目网关</description>
+    <name>monkeyzi-pro-gateway</name>
 
+    <dependencies>
+        <!--gateway 网关依赖,内置webflux 依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <!--配置中心客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.monkeyzi</groupId>
+            <artifactId>monkeyzi-pro-common-core</artifactId>
+            <version>${monkeyzi.pro.version}</version>
+        </dependency>
+        <!--swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
 
+    </dependencies>
 </project>

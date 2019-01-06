@@ -1,5 +1,6 @@
 package com.monkeyzi.mcloud.sys.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 public class User {
 
     @NotBlank(message = "姓名不能为空")
+    @ApiModelProperty(required = true,value = "姓名")
     private String userName;
     private String password;
 }

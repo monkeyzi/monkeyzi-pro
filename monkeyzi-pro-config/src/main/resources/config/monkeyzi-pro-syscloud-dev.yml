@@ -1,0 +1,34 @@
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  # 数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    # Jasypt加密
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    logSlowSql: true
+    # Druid StatViewServlet配置
+    druid:
+      stat-view-servlet:
+        # 默认true 内置监控页面首页/druid/index.html
+        enabled: true
+        url-pattern: /druid/*
+        # 允许清空统计数据
+        reset-enable: true
+        login-username: root
+        login-password: root
+        # IP白名单 多个逗号分隔
+        allow:
+        # IP黑名单
+        deny:
+#swagger信息
+
+# mybaits 模块配置
+mybatis-plus:
+  type-aliases-package: com.monkeyzi.mcloud.sys.api.entity
+  type-enums-package: com.monkeyzi.mcloud.sys.api.entity

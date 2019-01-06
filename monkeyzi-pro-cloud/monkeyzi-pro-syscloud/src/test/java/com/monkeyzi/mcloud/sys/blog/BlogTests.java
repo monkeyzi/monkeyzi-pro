@@ -20,7 +20,7 @@ public class BlogTests extends MonkeyziSysApplicationTests {
     @Test
     public void test1(){
         BlogComm comm=new BlogComm();
-        comm.setCId(1);
+        //comm.setCId(1);
         comm.setComment("测试");
         blogCommService.save(comm);
     }

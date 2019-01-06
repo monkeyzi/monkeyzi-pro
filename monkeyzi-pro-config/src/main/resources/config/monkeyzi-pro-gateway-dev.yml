@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+      routes:
+      # 系统模块
+      - id: monkeyzi-pro-syscloud
+        uri: lb://monkeyzi-pro-syscloud
+        predicates:
+        - Path=/admin/**
+        filters:
+        # Swagger请求头处理
+        - SwaggerHeaderFilter
+        - StripPrefix=1
+        # 降级配置
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: 'forward:/fallback'
