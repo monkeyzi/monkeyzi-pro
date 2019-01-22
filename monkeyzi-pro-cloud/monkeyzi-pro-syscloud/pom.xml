@@ -30,6 +30,11 @@
             <artifactId>monkeyzi-pro-syscloud-api</artifactId>
             <version>${monkeyzi.pro.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.monkeyzi</groupId>
+            <artifactId>monkeyzi-pro-common-redis</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--eureka 客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -45,12 +50,6 @@
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${pagehelper-spring-boot-starter.version}</version>
-        </dependency>
-        <!--redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-redis</artifactId>
-            <version>${redis.version}</version>
         </dependency>
         <!--web-->
         <dependency>

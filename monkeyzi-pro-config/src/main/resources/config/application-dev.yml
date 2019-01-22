@@ -44,4 +44,16 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: true
-
+spring:
+  redis:
+    port: 6379
+    database: 0
+    password: 1223gao
+    timeout: 5000ms
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 2
+        max-wait: -1ms
+    host: 127.0.0.1

@@ -3,6 +3,7 @@ package com.monkeyzi.mcloud.sys;
 import com.monkeyzi.mcloud.common.swagger.annotation.EnableMonkeyziSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author: 高yg
@@ -13,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @EnableMonkeyziSwagger2
 @SpringBootApplication
+@ComponentScan("com.monkeyzi.mcloud")
 public class MonkeyziSysApplication {
     public  static void main(String[] args){
         SpringApplication.run(MonkeyziSysApplication.class,args);

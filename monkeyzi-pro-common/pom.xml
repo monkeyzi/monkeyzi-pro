@@ -18,6 +18,7 @@
         <module>monkeyzi-pro-common-util</module>
         <module>monkeyzi-pro-common-swagger</module>
         <module>monkeyzi-pro-common-security</module>
+        <module>monkeyzi-pro-common-redis</module>
     </modules>
 
 
