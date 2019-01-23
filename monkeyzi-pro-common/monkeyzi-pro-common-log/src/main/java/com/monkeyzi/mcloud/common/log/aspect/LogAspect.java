@@ -2,14 +2,17 @@ package com.monkeyzi.mcloud.common.log.aspect;
 
 import com.monkeyzi.mcloud.common.core.utils.FastJsonUtils;
 import com.monkeyzi.mcloud.common.log.annotation.LogAnnotation;
+import com.monkeyzi.mcloud.sys.api.feign.TestFeignApi;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -23,6 +26,9 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Order(1)
 public class LogAspect {
+
+    @Resource
+    private  TestFeignApi testFeignApi;
     /**
      * 请求参数记录最大值
      */
@@ -52,7 +58,7 @@ public class LogAspect {
         Long executeTime=endTime-startTime;
         log.info("执行时间为={}",executeTime);
         log.info("日志ok");
-
+        testFeignApi.test();
         return obj;
     }
 

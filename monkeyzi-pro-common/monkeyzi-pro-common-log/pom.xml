@@ -20,6 +20,11 @@
             <artifactId>monkeyzi-pro-common-core</artifactId>
             <version>${monkeyzi.pro.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.monkeyzi</groupId>
+            <artifactId>monkeyzi-pro-syscloud-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -3,6 +3,8 @@ package com.monkeyzi.mcloud.sys;
 import com.monkeyzi.mcloud.common.swagger.annotation.EnableMonkeyziSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -13,7 +15,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @description:
  */
 @EnableMonkeyziSwagger2
-@SpringBootApplication
+@SpringCloudApplication
+@EnableFeignClients(basePackages = "com.monkeyzi.mcloud.sys.api.feign")
 @ComponentScan("com.monkeyzi.mcloud")
 public class MonkeyziSysApplication {
     public  static void main(String[] args){
